@@ -14,15 +14,8 @@ Deno.serve(async (req: Request) => {
   try {
     const { message } = await req.json();
 
-    const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
-    const ADMIN_EMAIL = Deno.env.get("ADMIN_EMAIL");
-
-    if (!RESEND_API_KEY || !ADMIN_EMAIL) {
-      return new Response(
-        JSON.stringify({ error: "Email service not configured" }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
+    const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY") || "re_ioSdY7NT_DCHhxjeZr4Am1cJfZ9Jz5Zm2";
+    const ADMIN_EMAIL = Deno.env.get("ADMIN_EMAIL") || "prayerteamagc@gmail.com";
 
     const emailBody = {
       from: "Prayer Requests <onboarding@resend.dev>",
