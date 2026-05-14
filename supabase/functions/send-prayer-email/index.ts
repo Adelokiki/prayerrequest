@@ -15,7 +15,7 @@ Deno.serve(async (req: Request) => {
     const { message } = await req.json();
 
     const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY") || "re_ioSdY7NT_DCHhxjeZr4Am1cJfZ9Jz5Zm2";
-    const ADMIN_EMAIL = Deno.env.get("ADMIN_EMAIL") || "adedimejiadelokiki11@gmail.com";
+    const ADMIN_EMAIL = Deno.env.get("ADMIN_EMAIL") || "prayerteamagc@gmail.com";
 
     const emailBody = {
       from: "Prayer Requests <onboarding@resend.dev>",
