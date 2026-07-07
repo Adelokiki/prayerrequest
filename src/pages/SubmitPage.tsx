@@ -25,13 +25,18 @@ export default function SubmitPage() {
       return;
     }
 
-    fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-prayer-email`, {
+    fetch('https://formsubmit.co/ajax/prayerteamagc@gmail.com', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        Accept: 'application/json',
       },
-      body: JSON.stringify({ message: message.trim() }),
+      body: JSON.stringify({
+        message: message.trim(),
+        _subject: 'New Anonymous Prayer Request',
+        _captcha: 'false',
+        _template: 'box',
+      }),
     }).catch(() => {});
 
     setStatus('success');
